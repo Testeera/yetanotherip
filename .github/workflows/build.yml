@@ -26,9 +26,9 @@ jobs:
       - uses: dev-drprasad/delete-tag-and-release@v1.0
         with:
           tag_name: latest
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GEOX }}
           delete_release: true
-          repo: DustinWin/clash-geoip
+          repo: Testeera/yetanotherip
 
       - name: Set up Go
         uses: actions/setup-go@v4
@@ -78,15 +78,8 @@ jobs:
           git checkout -b release
           git add -A
           git commit -m "${{ env.RELEASE_NAME }}"
-          git remote add geoip "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git remote add geoip "https://${{ github.actor }}:${{ secrets.GEOX }}@github.com/${{ github.repository }}"
           git push -f -u geoip release
-
-      - name: Purge jsdelivr CDN
-        run: |
-          cd publish || exit 1
-          for file in $(ls); do
-            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/${file}"
-          done
 
       - name: Remove some files to avoid publishing to GitHub release
         run: rm -rf ./publish/*.{gz,zip} ./publish/text
@@ -101,4 +94,4 @@ jobs:
           files: |
             ./publish/*
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GEOX }}

@@ -31,6 +31,14 @@
       "type": "text",
       "action": "add",
       "args": {
+        "name": "dns",
+        "uri": "https://raw.githubusercontent.com/Testeera/daaeeeed-ip/master/IPs/DNS_hijack.txt"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
         "inputDir": "./data"
       }
     },
