@@ -59,6 +59,7 @@ jobs:
           curl -sSL https://raw.githubusercontent.com/Testeera/daaeeeed-ip/master/IPs/Lan_IP.txt > data/lanip
           curl -sSL https://raw.githubusercontent.com/Testeera/daaeeeed-ip/master/IPs/DNS_hijack.txt > data/dns
           curl -sSL https://core.telegram.org/resources/cidr.txt > data/telegram
+          curl -sSL https://raw.githubusercontent.com/Testeera/biiba/main/bilibili_pcdn.txt > data/bilicdn
 
       - name: Build geoip files
         run: |
